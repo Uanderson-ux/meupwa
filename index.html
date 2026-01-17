@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Meu PWA</title>
-
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#000000">
-</head>
-<body>
-
-  <h1>Meu PWA está funcionando 🚀</h1>
-
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("service-worker.js");
-    }
-  </script>
-
-</body>
-</html>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(reg => console.log("Service Worker registrado", reg))
+        .catch(err => console.log("Erro SW", err));
+    });
+  }
+</script>
